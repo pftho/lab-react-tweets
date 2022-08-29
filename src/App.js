@@ -1,7 +1,8 @@
 import "./App.css";
 import Tweet from "./components/Tweet";
+import { v4 as uuidv4 } from "uuid";
 
-const tweetsArray = [
+export const tweetsArray = [
   {
     user: {
       name: "Thoughts of Dog®",
@@ -37,7 +38,9 @@ const tweetsArray = [
 function App() {
   return (
     <div className="App">
-      <Tweet />
+      {tweetsArray.map((tweet) => (
+        <Tweet key={uuidv4()} tweet={tweet} />
+      ))}
     </div>
   );
 }
